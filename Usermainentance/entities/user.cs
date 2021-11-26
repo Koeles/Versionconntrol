@@ -8,7 +8,7 @@ namespace Usermainentance.entities
 {
     class user
     {
-        public Guid guid { get; set; } = Guid.NewGuid();
+        public Guid ID { get; set; } = Guid.NewGuid();
         public string FirstName { get; set; }
         public string Lastname { get; set; }
 
