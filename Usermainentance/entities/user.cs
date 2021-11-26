@@ -9,13 +9,7 @@ namespace Usermainentance.entities
     class user
     {
         public Guid ID { get; set; } = Guid.NewGuid();
-        public string FirstName { get; set; }
-        public string Lastname { get; set; }
-
-       
-        public string Fullname
-        {
-            get { return Lastname + " " + FirstName; }
-        }
+        public string FullName { get; set; }
     }
+    
 }
