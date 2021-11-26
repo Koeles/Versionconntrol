@@ -17,8 +17,7 @@ namespace Usermainentance
         public Form1()
         {
             InitializeComponent();
-            label1.Text = Resource1.LastName;
-            label2.Text = Resource1.FirstName;
+            label3.Text = Resource1.FullName;
             button1.Text = Resource1.add;
 
             listBox1.DataSource = users;
@@ -30,8 +29,9 @@ namespace Usermainentance
         private void button1_Click(object sender, EventArgs e)
         {
             user u = new user();
-            u.Lastname = textBox1.Text;
-            u.FirstName = textBox2.Text;
+            // u.Lastname = textBox1.Text;
+            //u.FirstName = textBox2.Text;
+            u.FullName = textBox3.Text;
             users.Add(u);
         }
     }
