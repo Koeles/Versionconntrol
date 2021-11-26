@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Usermainentance
             InitializeComponent();
             label3.Text = Resource1.FullName;
             button1.Text = Resource1.add;
-
+            button2.Text = Resource1.Fajlbairas;
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
             listBox1.DisplayMember = "FullName";
@@ -33,6 +34,18 @@ namespace Usermainentance
             //u.FirstName = textBox2.Text;
             u.FullName = textBox3.Text;
             users.Add(u);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog()==DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                    foreach  (user item in users)
+                   sw.WriteLine(item.ID + ";" + item.FullName);
+                   
+            }
         }
     }
 }
