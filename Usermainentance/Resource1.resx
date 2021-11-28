@@ -120,6 +120,9 @@
   <data name="add" xml:space="preserve">
     <value>Hozzaadás</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
   <data name="Fajlbairas" xml:space="preserve">
     <value>Fájlba mentés</value>
   </data>

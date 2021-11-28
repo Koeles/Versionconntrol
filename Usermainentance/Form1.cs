@@ -21,6 +21,7 @@ namespace Usermainentance
             label3.Text = Resource1.FullName;
             button1.Text = Resource1.add;
             button2.Text = Resource1.Fajlbairas;
+            button3.Text = Resource1.Delete;
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
             listBox1.DisplayMember = "FullName";
@@ -46,6 +47,12 @@ namespace Usermainentance
                    sw.WriteLine(item.ID + ";" + item.FullName);
                    
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            user valasztott = (user)listBox1.SelectedItem;
+            users.Remove(valasztott);
         }
     }
 }
