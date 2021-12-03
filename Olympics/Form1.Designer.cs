@@ -29,13 +29,58 @@ namespace Olympics
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.cbev = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btexp = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // cbev
+            // 
+            this.cbev.FormattingEnabled = true;
+            this.cbev.Location = new System.Drawing.Point(145, 57);
+            this.cbev.Name = "cbev";
+            this.cbev.Size = new System.Drawing.Size(121, 21);
+            this.cbev.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(93, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "EV";
+            // 
+            // btexp
+            // 
+            this.btexp.Location = new System.Drawing.Point(145, 99);
+            this.btexp.Name = "btexp";
+            this.btexp.Size = new System.Drawing.Size(75, 23);
+            this.btexp.TabIndex = 2;
+            this.btexp.Text = "Export";
+            this.btexp.UseVisualStyleBackColor = true;
+            this.btexp.Click += new System.EventHandler(this.btexp_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btexp);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbev);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ComboBox cbev;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btexp;
     }
 }
 
