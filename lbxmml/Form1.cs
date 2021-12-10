@@ -23,6 +23,8 @@ namespace lbxmml
         public Form1()
         {
             InitializeComponent();
+            loadCurrencyxml(getCurrencies());
+            
             cbvaluta.DataSource = currencies;
             Refreshdata();
         }
@@ -64,12 +66,16 @@ namespace lbxmml
                 Ratedata r = new Ratedata();
                 r.Date = DateTime.Parse(item.GetAttribute("date"));
                 var childElement = (XmlElement)item.ChildNodes[0];
-                r.Currency = childElement.GetAttribute("curr");
-                decimal unit = decimal.Parse(childElement.GetAttribute("unit"));
-                r.Value = decimal.Parse(childElement.InnerText);
-                if (unit != 0)
-                    r.Value = r.Value / unit;
-                _rates.Add(r);
+
+                if (childElement != null)
+                {
+                    r.Currency = childElement.GetAttribute("curr");
+                    decimal unit = decimal.Parse(childElement.GetAttribute("unit"));
+                    r.Value = decimal.Parse(childElement.InnerText);
+                    if (unit != 0)
+                        r.Value = r.Value / unit;
+                    _rates.Add(r);
+                }
             }
         }
 
@@ -94,6 +100,19 @@ namespace lbxmml
 
         }
 
+        private void loadCurrencyxml(string xmlstring)
+        {
+            currencies.Clear();
+            XmlDocument xml = new XmlDocument();
+            xml.LoadXml(xmlstring);
+
+            foreach (XmlElement item in xml.DocumentElement.ChildNodes[0])
+            {
+                string s = item.InnerText;
+                currencies.Add(s);
+            }
+
+        }
 
         private void tolpicker_ValueChanged(object sender, EventArgs e)
         {
